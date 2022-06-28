@@ -10,4 +10,3 @@ def fizzbuzz():
         if check_5_mult == 0 and check_3_mult == 0:
             num = "FizzBuzz"
         print("{}".format(num), end=" ")
-
