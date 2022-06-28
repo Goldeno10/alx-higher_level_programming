@@ -5,7 +5,7 @@ last_digit = 0
 str = ""
 
 if number < 0:
-    last_digit = (number * (-1)) % 10
+    last_digit = -((number * (-1)) % 10)
 else:
     last_digit = number % 10
 
