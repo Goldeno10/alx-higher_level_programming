@@ -10,6 +10,8 @@ int check_cycle(listint_t *list)
 {
 	listint_t *fast;
 	listint_t *twice_fast;
+	if (!list)
+		return (0);
 
 	fast = list;
 	twice_fast = list;
