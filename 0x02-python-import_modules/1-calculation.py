@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 from calculator_1 import add, mul, sub, div
 
-a = 1
-b = 2
+a = 10
+b = 5
 
 if __name__ == "__main__":
     ad = add(a, b)
@@ -12,4 +12,4 @@ if __name__ == "__main__":
     mu = mul(a, b)
     print("{} * {} = {}".format(a, b, mu))
     di = div(a, b)
-    print("{} / {} = {}".format(a, b, div))
+    print("{} / {} = {}".format(a, b, di))
