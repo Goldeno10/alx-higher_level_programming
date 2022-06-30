@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 if __name__ == "__main__":
     import calculator_1 as calc
     import sys
@@ -13,7 +14,7 @@ if __name__ == "__main__":
     b = int(arg_v[3])
     op = arg_v[2]
     if op == "+":
-        c = cal.add(a, b)
+        c = calc.add(a, b)
         print("{} {} {} = {}".format(a, op, b, c))
     elif op == "-":
         c = calc.sub(a, b)
