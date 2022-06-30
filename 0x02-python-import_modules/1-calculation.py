@@ -11,5 +11,5 @@ if __name__ == "__main__":
     print("{} - {} = {}".format(a, b, su))
     mu = mul(a, b)
     print("{} * {} = {}".format(a, b, mu))
-    di = div(a, b
+    di = div(a, b)
     print("{} / {} = {}".format(a, b, div))
