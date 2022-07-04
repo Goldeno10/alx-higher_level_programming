@@ -2,64 +2,81 @@
 #include <stdlib.h>
 #include "lists.h"
 
-
-int _len(listint_t **h)
+/**
+*dup_list - Duplicates a lnked list
+*@h: The linked list head pointer
+*Return: A copy of the linked list
+*/
+listint_t *dup_list(listint_t *h)
 {
-	int n = 0;
-	listint_t *current;
 
-	current = *h;
-	while (current != NULL)
-	{
-		current = current->next;
-		n++;
-	}
-	return (n);
+	listint_t *dup = malloc(sizeof(listint_t *));
+
+	if (h == NULL || dup == NULL)
+		return (NULL);
+	dup->n = h->n;
+	dup->next = dup_list(h->next);
+	return (dup);
 }
 
-int *create_array(const listint_t *h)
-{
-	int i = 0;
-	int *arr = NULL;
+/**
+*rev_list - Reverses a singly linked list.
+*@h: List head pointer
+*Return: reverse linked list
+*/
 
-	while (h != NULL)
+listint_t *rev_list(listint_t **head)
+{
+	listint_t *current,*test, *prev, *next;
+
+	current = *head;
+	test = *head;
+	prev = NULL;
+	next = NULL;
+
+	while (current != NULL && test != NULL)
 	{
-		arr[i] = h->n;
-		h = h->next;
-		i++;
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
 	}
-	return (arr);
+	*head = prev;
+	return (*head);
 }
 
 
 /**
-*
-*
-*
-*
+*is_palindrome - checks if a singly linked list is a palindrome.
+*@head: The linked list head pointer
+*Return: 0 if it is not a palindrome, 1 if it is a palindrome
 */
 
 int is_palindrome(listint_t **head)
 {
-	int n, i, j;
-	listint_t *current;
-	int *arr;
-	current = *head;
+	listint_t *h_node = *head;
+	listint_t *rev_lst, *dup;
 
-	if (current == NULL)
-		return (0);
+	if (h_node == NULL || h_node->next == NULL)
+		return (1);
 
-	n = _len(head);
+	dup = dup_list(*head);
+	rev_lst = rev_list(&h_node);
 
-	arr = create_array(current);
-
-	for (i = 0, j = n; i <= j; i++, j--)
+	if (!rev_lst)
+                return(1);
+	while (dup != NULL && rev_lst != NULL)
 	{
-		if (arr[i] != arr[j])
-			return (1);
+		if (dup->n == rev_lst->n)
+		{
+			dup = dup->next;
+			rev_lst = rev_lst->next;
+		}
+		else {
+			return (0);
+		}
 	}
-	printf("%i", n);
-	return (0);
+	return (1);
 
 }
 
