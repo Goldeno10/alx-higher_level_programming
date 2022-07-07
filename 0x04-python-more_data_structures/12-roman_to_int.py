@@ -4,10 +4,11 @@ def roman_to_int(roman_string):
            "L": 50, "C": 100,
            "D": 500, "M": 1000}
     keys = list(rmn)
-    Lst = list(roman_string)
-
     if (roman_string is None) or not(type(roman_string) == str):
         return 0
+    roman_string.upper()
+    Lst = list(roman_string)
+
     for i in Lst:
         if i not in keys:
             return 0
