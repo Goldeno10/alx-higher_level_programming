@@ -6,7 +6,7 @@ def roman_to_int(roman_string):
     keys = list(rmn)
     Lst = list(roman_string)
 
-    if (roman_string is None) or not(roman_string.isalpha):
+    if (roman_string is None) or not(type(roman_string) == str):
         return 0
     for i in Lst:
         if i not in keys:
