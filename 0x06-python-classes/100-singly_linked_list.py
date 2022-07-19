@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+"""Node class linked lists
+"""
 
 class Node:
     """Represents a node in a singly linked list
@@ -65,6 +66,8 @@ class Node:
         """
         return str(self.__data)
 
+"""Class SinglyLinkedList
+"""
 
 class SinglyLinkedList:
     """Represents a single linked list
