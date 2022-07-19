@@ -31,11 +31,20 @@ class Square:
     @property
     def size(self):
         """Getter for size attribute
+
+        Returns:
+           size atrribute
         """
         return(self.__size)
 
     @size.setter(self, size):
         """Setter for size attribute
+
+        Args:
+            __size : New value for size attribute
+
+        Returns:
+            Nothing
         """
         if (type(size) == int) and (size >= 0):
             self.__size = size
