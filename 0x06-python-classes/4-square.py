@@ -6,6 +6,10 @@ properties
 
 class Square:
     """Defines a square with private field 'size'
+
+    Attributes:
+        __size (int): size of a side of the square
+
     """
 
     def __init__(self, size=0):
@@ -24,7 +28,9 @@ class Square:
 
     def area(self):
         """Computes the area of a square
-        Return: Area of square
+
+        Returns:
+           Area of square
         """
         return(self.__size**2)
 
