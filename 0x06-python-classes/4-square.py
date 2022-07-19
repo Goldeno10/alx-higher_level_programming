@@ -43,7 +43,8 @@ class Square:
         """
         return(self.__size)
 
-    @size.setter(self, size):
+    @size.setter
+    def size(self, size):
         """Setter for size attribute
 
         Args:
