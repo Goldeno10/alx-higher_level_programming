@@ -2,6 +2,7 @@
 """Node class linked lists
 """
 
+
 class Node:
     """Represents a node in a singly linked list
     Attributes:
@@ -66,14 +67,17 @@ class Node:
         """
         return str(self.__data)
 
+
 """Class SinglyLinkedList
 """
+
 
 class SinglyLinkedList:
     """Represents a single linked list
     Attributes:
         __head (Node): head of the linked list
     """
+
     def __init__(self):
         """Initializes the linked list
         Returns:
