@@ -13,6 +13,25 @@ class Square:
 
     """
 
+    def __str__(self):
+        str_rep = ""
+
+        if self.size == 0:
+            return str_rep
+
+        for i in range(self.position[1]):
+            str_rep += "\n"
+
+        for i in range(0, self.size):
+            for k in range(self.position[0]):
+                str_rep += " "
+            for j in range(self.size):
+                str_rep += "#"
+            if i is not (self.size - 1):
+                str_rep += "\n"
+
+        return str_rep
+
     def __init__(self, size=0, position=(0, 0)):
         """ __init__ initialises the inputed parameters
 
@@ -80,7 +99,7 @@ class Square:
         if isinstance(value, tuple):
             if len(value) == 2:
                 if isinstance(value[0], isinstance(value[1], int)):
-                    if value[0] >= and  value[1] >= 0:
+                    if value[0] >=0 and value[1] >= 0:
                         self.__position = value
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
