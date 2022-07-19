@@ -5,10 +5,10 @@ properties
 
 
 class Square:
-    """Defines a square with private field 'size' 
+    """Defines a square with private field 'size'
     """
 
-    def __init__(self, size = 0):
+    def __init__(self, size=0):
         """ __init__ initialises the inputed parameters
 
         Args:
