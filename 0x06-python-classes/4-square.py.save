@@ -29,17 +29,6 @@ class Square:
         return(self.__size**2)
 
     @property
-    def size(self):
-        """Getter for size attribute
-        """
+    def size(self)
         return(self.__size)
-
-    @size.setter(self, size):
-        """Setter for size attribute
-        """
-        if (type(size) == int) and (size >= 0):
-            self.__size = size
-        elif type(size) != int:
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
+    @size.setter
