@@ -1,8 +1,15 @@
 #!/usr/bin/python3
 class Square:
-    """Defines a square with private field 'size' """
+    """Defines a square with private field 'size'
+    """
 
     def __init__(self, size=0):
+        """ __init__ initialises the inputed parameters
+
+        Args:
+           size (int): The size of the sqaure
+
+        """
         if (type(size) == int) and (size >= 0):
             self.__size = size
         elif type(size) != int:
@@ -11,4 +18,7 @@ class Square:
             raise ValueError("size must be >= 0")
 
     def area(self):
+        """Computes the area of a square
+        Return: Area of square
+        """
         return(self.__size**2)
