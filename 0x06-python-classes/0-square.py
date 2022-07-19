@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-""" dusjsidjfhha sudjahdhd suufufh
-ehdhfiisg fudus djfhfh
-hfh dkfj: eidifg
+"""Class square, it defines and compute square
+properties
 """
+
 
 class Square:
     """Class Sqaure, it defines a square.

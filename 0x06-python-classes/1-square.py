@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""Class square, it defines and compute square
+properties
+"""
+
+
 class Square:
     """Defines a square with private field 'size'
     """
