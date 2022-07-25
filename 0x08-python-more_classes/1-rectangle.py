@@ -47,6 +47,7 @@ class Rectangle:
         """Getter for height attribute
         """
         return self.__height
+
     @height.setter
     def height(self, height):
         """Setter fot height
@@ -61,4 +62,3 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         else:
             self.__height = height
-
