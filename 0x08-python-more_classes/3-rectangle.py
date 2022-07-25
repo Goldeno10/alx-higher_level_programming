@@ -80,11 +80,9 @@ class Rectangle:
             return (2 * (self.__height + self.__width))
 
     def __str__(self):
-        """String representation of this class instance
-        """
-        if (self.__width == 0) or (self.__height == 0):
-            return ""
-        else:
-            string = ""
-            string += (("#" * self.__width) + "\n") * self.__height
-            return string
+        """returns printable string representation of the rectangle"""
+        string = ""
+        if self.__width != 0 and self.__height != 0:
+            string += "\n".join(str(self.print_symbol) * self.__width
+                                for j in range(self.__height))
+        return
