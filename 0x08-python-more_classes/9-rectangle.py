@@ -24,17 +24,27 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """Returns a new Rectangle instance with width == height == size
+
+        Args:
+            cls: rectangle class
+            size: rectangle width and rectangle height
+        Returns:
+            a new instance of Rectangle class
         """
+
         return cls(size, size)
 
     def __init__(self, width=0, height=0):
         """The __init__ method for initializing the
         attributes
+
         Args:
             width (int): Rectangle width
             height (int): Rectangle height
+
         Returns:
             Nothing
+
         """
         self.__width = width
         self.__height = height
@@ -43,14 +53,18 @@ class Rectangle:
     @property
     def width(self):
         """Getter for wdth attribute
+
         """
+
         return self.__width
 
     @width.setter
     def width(self, width):
         """Setter fot width
+
         Arg:
             value (int): New width parameter
+
         Returns:
             Nothing
         """
@@ -101,21 +115,28 @@ class Rectangle:
             return (2 * (self.__height + self.__width))
 
     def __str__(self):
-        """String representation of this class instance
+        """returns printable string representation
+        of the rectangle
         """
+
         string = ""
-        if self.__width != 0 and self.__height != 0:
-            string += "\n".join(str(self.print_symbol) * self.__width
-                                for j in range(self.__height))
+        if self.width == 0 or self.height == 0:
             return string
+
+        for i in range(self.height):
+            string += ("#" * self.width) + "\n"
+
+        return string[:-1]
 
     def __repr__(self):
         """String representation of class instance
         """
-        return f"Rectangle({self.__width}, {self.__height})"
+
+        return "Rectangle({:d}, {:d})".format(self.width, self.height)
 
     def __del__(self):
         """Class instance destructor method
         """
+
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
