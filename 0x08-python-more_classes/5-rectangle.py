@@ -93,6 +93,7 @@ class Rectangle:
         """String representation of class instance
         """
         return f"Rectangle({self.__width}, {self.__height})"
+
     def __del__(self):
         """Class instance destructor method
         """
