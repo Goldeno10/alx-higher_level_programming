@@ -83,7 +83,7 @@ class Rectangle:
         """String representation of this class instance
         """
         if (self.__width == 0) or (self.__height == 0):
-            return " "
+            return ""
         else:
             string = ""
             string += (("#" * self.__width) + "\n") * self.__height
