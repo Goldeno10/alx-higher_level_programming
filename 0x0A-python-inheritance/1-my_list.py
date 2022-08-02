@@ -1,17 +1,15 @@
 #!/usr/bin/python3
 """
+This modle contains the MyList class
 """
 
 
 class MyList(list):
-    """A subclass of list
-    """
-
+    """a subclass of list"""
     def __init__(self):
-        """Object initializer"""
+        """initializes the object"""
+        super().__init__()
 
-        super().__init__(self)
-
-    def print_sorted(self): 
-        """Print a sorted list"""    
-        print(sorted(self)
+    def print_sorted(self):
+        """prints a sorted list"""
+        print(sorted(self))
