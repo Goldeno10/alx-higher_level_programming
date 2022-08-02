@@ -1,21 +1,12 @@
 #!/usr/bin/python3
-"""Contains an empty class BaseGeometry
+"""
+Contains the class BaseGeometry
 """
 
 
 class BaseGeometry:
-    """A class with and unimplemented function"""
-
-    def ___init___(self):
-        """An Unimplenented initializer"""
-
-        pass
-    
+    """A class with public instance methods area and
+    an integer_validator"""
     def area(self):
-        """A Public instance method: def area(self): 
-        that raises an Exception with the message 
-        'area() is not implemented'
-        """
-
-        raise NameError("area() is not implemented")
-
+        """raises an exception when called"""
+        raise Exception("area() is not implemented")
