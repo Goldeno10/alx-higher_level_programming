@@ -5,10 +5,10 @@
 
 class BaseGeometry:
     """A class with and unimplemented function"""
-    
+
     def area(self):
-        """A Public instance method: def area(self): 
-        that raises an Exception with the message 
+        """A Public instance method: def area
+        that raises an Exception with the message
         'area() is not implemented'
         """
 
@@ -18,7 +18,7 @@ class BaseGeometry:
         """Public instance method:integer_validator
         that validates 'value' parameter"""
 
-        if isinstance(value, int) == False:
+        if type(value) != int:
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
