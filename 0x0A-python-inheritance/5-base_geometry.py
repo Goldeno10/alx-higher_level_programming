@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""Contains an empty class BaseGeometry
+"""
+Contains the class BaseGeometry
 """
 
 
 class BaseGeometry:
+    """A unimplemented class  """
     pass
