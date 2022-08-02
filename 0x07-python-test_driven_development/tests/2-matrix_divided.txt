@@ -7,7 +7,7 @@ Using ``matrix_divided``
 Importing the function from the module:
 	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
 
-gZfChecking for module docstring:
+Checking for module docstring:
 	 >>> m = __import__("2-matrix_divided").__doc__
 	 >>> len(m) > 1
 	 True
