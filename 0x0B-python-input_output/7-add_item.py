@@ -4,11 +4,13 @@ and then save them to a file
 """
 
 
-import sys
-import os
+import sys """importing system function 'sys' """
+import os """importing system function 'os' """ 
 
 
+"""Importing save_to_json_file function"""
 save_file = __import__('7-save_to_json_file').save_to_json_file
+"""importing load_from_json_file function"""
 load_file = __import__('8-load_from_json_file').load_from_json_file
 
 my_list = []
