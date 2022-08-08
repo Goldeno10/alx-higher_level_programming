@@ -143,18 +143,6 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             a = self.s1.area(1)
 
-    def test_basic_display(self):
-        """Test display without x and y"""
-        s = Square(3, 0, 0, 1)
-        with io.StringIO() as buf, redirect_stdout(buf):
-            self.s1.display()
-            output = buf.getvalue()
-            self.assertEqual(output, "#\n")
-        with io.StringIO() as buf, redirect_stdout(buf):
-            s.display()
-            output = buf.getvalue()
-            self.assertEqual(output, ("#" * 3 + "\n") * 3)
-
     def test_display_too_many_args(self):
         """Test display with too many args"""
         with self.assertRaises(TypeError):
@@ -167,24 +155,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(str(self.s3), "[Square] (3) 5/6 - 4")
         self.assertEqual(str(self.s4), "[Square] (10) 8/9 - 7")
 
-    def test_display_xy(self):
-        """Testing the display method with x and y"""
-        with io.StringIO() as buf, redirect_stdout(buf):
-            self.s2.display()
-            output = buf.getvalue()
-            self.assertEqual(output, (" " * 3 + "#" * 2 + "\n") * 2)
-
-        with io.StringIO() as buf, redirect_stdout(buf):
-            self.s3.display()
-            output = buf.getvalue()
-            self.assertEqual(output, "\n" * 6 +
-                             (" " * 5 + "#" * 4 + "\n") * 4)
-
-        with io.StringIO() as buf, redirect_stdout(buf):
-            self.s4.display()
-            output = buf.getvalue()
-            self.assertEqual(output, "\n" * 9 +
-                    (" " * 8 + "#" * 7 + "\n") * 7)
     def test_update_args(self):
         """Testing the udpate method with *args"""
         s = Square(1, 0, 0, 1)

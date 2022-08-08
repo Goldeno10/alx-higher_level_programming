@@ -10,10 +10,10 @@ class Rectangle(base.Base):
     """class Rectangle"""
     def __init__(self, width, height, x=0, y=0, id=None):
         """The initializer function"""
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
@@ -96,11 +96,13 @@ class Rectangle(base.Base):
         an argument to each attribute
         """
         arg_list = ["id", "width", "height", "x", "y"]
-        if len(args) > len(arg_list):
-                raise NameError("too many arguments for update")
-        if args is not None and 0 < len(args) <= len(arg_list):
-            for i in range(len(arg_list)):
-                setattr(self, arg_list[i], args[i])
+        if args is not None and len(args) > 0:
+            i = 0
+            for it in args:
+                if i > len(arg_list):
+                    raise NameError("too many arguments for update")
+                setattr(self, arg_list[i], it)
+                i += 1
         elif len(args) == 0 and kwargs is not None:
             if len(kwargs) > 0:
                 for key in kwargs:

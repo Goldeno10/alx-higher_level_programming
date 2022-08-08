@@ -12,12 +12,6 @@ class Square(rectangle.Rectangle):
         """The initializer function"""
         super().__init__(size, size, x, y, id)
 
-    @rectangle.Rectangle.width.setter
-    def width(self, w_val):
-        """Setter for width"""
-        super().width(w_val)
-        super().height(w_val)
-
     @property
     def size(self):
         """getter for size"""
@@ -26,12 +20,8 @@ class Square(rectangle.Rectangle):
     @size.setter
     def size(self, s_val):
         """setter for size"""
-        if type(s_val) != int:
-            raise TypeError("width must be an integer")
-        if s_val <= 0:
-            raise ValueError("width must be > 0")
-        self__width = s_val
-        self.__height = s_val
+        self.width = s_val
+        self.height = s_val
 
     def update(self, *args, **kwargs):
         """Update the class Square  by Assigns
@@ -39,8 +29,13 @@ class Square(rectangle.Rectangle):
         """
         arg_list = ["id", "size", "x", "y"]
         if args is not None and len(args) > 0:
+            i = 0
             for i in range(len(args)):
+                if i > len(arg_list):
+                    raise NameError("too many arguments to update")
+                    break
                 setattr(self, arg_list[i], args[i])
+                i += 0
         elif len(args) == 0 and kwargs is not None:
             if len(kwargs) > 0:
                 for key in kwargs:
