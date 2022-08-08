@@ -38,10 +38,10 @@ class Square(rectangle.Rectangle):
         an argument to each attribute:
         """
         arg_list = ["id", "size", "x", "y"]
-        if args != None and len(args) > 0:
+        if args is not None and len(args) > 0:
             for i in range(len(args)):
                 setattr(self, arg_list[i], args[i])
-        elif len(args) == 0 and kwargs != None:
+        elif len(args) == 0 and kwargs is not None:
             if len(kwargs) > 0:
                 for key in kwargs:
                     if key in arg_list:
@@ -52,12 +52,12 @@ class Square(rectangle.Rectangle):
         of the object
         """
         arg_list = ["id", "size", "x", "y"]
-        dict_rep = {k:getattr(self, k) for k in arg_list}
+        dict_rep = {k: getattr(self, k) for k in arg_list}
         return (dict_rep)
 
     def __str__(self):
         """Returns the string representation of and
         instance/object
         """
-        return ("[Square] ({}) {}/{} - {}".format(self.id,
-            self.x, self.y, self.width))
+        return ("[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.width))

@@ -28,7 +28,7 @@ class Rectangle(base.Base):
             raise TypeError("width must be an integer")
         if w_val <= 0:
             raise ValueError("width must be > 0")
-        self__width = w_val
+        self.__width = w_val
 
     @property
     def height(self):
@@ -42,7 +42,7 @@ class Rectangle(base.Base):
             raise TypeError("height must be an integer")
         if h_val <= 0:
             raise ValueError("height must be > 0")
-        self__height = h_val
+        self.__height = h_val
 
     @property
     def y(self):
@@ -56,7 +56,7 @@ class Rectangle(base.Base):
             raise TypeError("y must be an integer")
         if y_val < 0:
             raise ValueError("y must be >= 0")
-        self__y = y_val
+        self.__y = y_val
 
     @property
     def x(self):
@@ -70,7 +70,7 @@ class Rectangle(base.Base):
             raise TypeError("x must be an integer")
         if x_val < 0:
             raise ValueError("x must be >= 0")
-        self__x = x_val
+        self.__x = x_val
 
     def area(self):
         """Returns the area value of the Rectangle
@@ -93,33 +93,32 @@ class Rectangle(base.Base):
 
     def update(self, *args, **kwargs):
         """Update the class Rectangle  by Assigns
-        an argument to each attribute:
+        an argument to each attribute
         """
         arg_list = ["id", "width", "height", "x", "y"]
-        if args != None and len(args) > 0:
-            for i in range(len(args)):
+        if len(args) > len(arg_list):
+                raise NameError("too many arguments for update")
+        if args is not None and 0 < len(args) <= len(arg_list):
+            for i in range(len(arg_list)):
                 setattr(self, arg_list[i], args[i])
-        elif len(args) == 0 and kwargs != None:
+        elif len(args) == 0 and kwargs is not None:
             if len(kwargs) > 0:
                 for key in kwargs:
                     if key in arg_list:
                         setattr(self, key, kwargs[key])
-    
+
     def to_dictionary(self):
         """Returns the dictionary representation
         of a Rectangle
         """
         arg_list = ["id", "width", "height", "x", "y"]
-        dict_rep = {k:getattr(self, k) for k in arg_list}
+        dict_rep = {k: getattr(self, k) for k in arg_list}
         return (dict_rep)
 
     def __str__(self):
         """Returns the string representation of and
         instance/object
         """
-        return ("[Rectangle] ({}) {}/{} - {}/{}"
-                .format(self.id,
-                    self.__x,
-                    self.__y,
-                    self.__width,
-                    self.__height))
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width,
+            self.__height))

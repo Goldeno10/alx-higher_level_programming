@@ -4,7 +4,7 @@ Test for the Rectangle class
 """
 
 import unittest
-import pep8
+import pycodestyle
 import inspect
 import io
 import json
@@ -21,20 +21,6 @@ class TestRectangleDocs(unittest.TestCase):
     def setUpClass(cls):
         """Set up for the doc tests"""
         cls.rect_funcs = inspect.getmembers(Rectangle, inspect.isfunction)
-
-    def test_pep8_conformance_rectangle(self):
-        """Test that models/rectangle.py conforms to PEP8."""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/rectangle.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
-    def test_pep8_conformance_test_rectangle(self):
-        """Test that tests/test_models/test_rectangle.py conforms to PEP8."""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test_rectangle.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
 
     def test_module_docstring(self):
         """Tests for the presence of a module docstring"""
@@ -106,54 +92,54 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r = Rectangle(1)
 
-    def test_width_typeerror(self):
+    def test_width_typeer_ror(self):
         """Test non-ints for width"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             r = Rectangle("hello", 1)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             r = Rectangle(True, 1)
 
-    def test_height_typeerror(self):
+    def test_height_type_error(self):
         """Test non-ints for height"""
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r = Rectangle(1, "hello")
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r = Rectangle(1, True)
 
-    def test_x_typeerror(self):
+    def test_x_type_error(self):
         """Test non-ints for x"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r = Rectangle(1, 1, "hello")
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r = Rectangle(1, 1, True)
 
-    def test_y_typeerror(self):
+    def test_y_type_error(self):
         """Test non-ints for y"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r = Rectangle(1, 1, 1, "hello")
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r = Rectangle(1, 1, 1, True)
 
-    def test_width_valueerror(self):
+    def test_width_value_error(self):
         """Test ints <= 0 for width"""
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             r = Rectangle(-1, 1)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             r = Rectangle(0, 1)
 
-    def test_height_valueerror(self):
+    def test_height_value_error(self):
         """Test ints <= 0 for height"""
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             r = Rectangle(1, -1)
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             r = Rectangle(1, 0)
 
-    def test_x_valueerror(self):
+    def test_x_value_error(self):
         """Test ints < 0 for x"""
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             r = Rectangle(1, 1, -1)
 
-    def test_y_valueerror(self):
+    def test_y_value_error(self):
         """Test ints <= 0 for y"""
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             r = Rectangle(1, 1, 1, -1)

@@ -50,7 +50,7 @@ class TestBaseMethods(unittest.TestCase):
         self.assertEqual(new.id, '1')
 
     def test_more_args_id(self):
-        """ Test passing more args to init method """
+        """ Test passing excess args to init method """
         with self.assertRaises(TypeError):
             new = Base(1, 1)
 
@@ -71,7 +71,7 @@ class TestBaseMethods(unittest.TestCase):
 
         try:
             os.remove("Square.json")
-        except:
+        except Exception:
             pass
 
         Square.save_to_file([])
