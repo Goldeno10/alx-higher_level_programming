@@ -80,6 +80,7 @@ class Base:
                 file_data = f.read()
                 data_list = cls.from_json_string(file_data)
                 return [cls.create(**item) for item in data_list]
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Serializes a CSV file """
@@ -95,9 +96,8 @@ class Base:
                         writer.writerow(obj_l)
                 elif cls.__name__ == "Square":
                     for obj in list_objs:
-                        obj_l = [obj.id, obj.size, obj.x,obj.y]
+                        obj_l = [obj.id, obj.size, obj.x, obj.y]
                         writer.writerow(obj_l)
-
 
     @classmethod
     def load_from_file_csv(cls):
@@ -109,16 +109,18 @@ class Base:
         else:
             with open(filename, "r", encoding="utf-8") as f:
                 csv_data = csv.reader(f)
-                i=0 
                 for data in csv_data:
                     if cls.__name__ == "Rectangle":
-                        dictionary = {"id": int(data[0]),
+                        dictionary = {
+                                "id": int(data[0]),
                                 "width": int(data[1]),
                                 "height": int(data[2]),
                                 "x": int(data[3]),
-                                "y": int(data[4])}
+                                "y": int(data[4])
+                                }
                     elif cls.__name__ == "Square":
-                        dictionary = {"id": int(data[0]),
+                        dictionary = {
+                                "id": int(data[0]),
                                 "size": int(data[1]),
                                 "x": int(data[2]),
                                 "y": int(data[3])}
