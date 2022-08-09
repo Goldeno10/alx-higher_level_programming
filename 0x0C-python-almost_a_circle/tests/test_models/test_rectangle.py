@@ -394,3 +394,6 @@ class TestRectangle(unittest.TestCase):
         self.assertIsNot(r2, r2c)
         self.assertNotEqual(r1, r1c)
         self.assertNotEqual(r2, r2c)
+
+__name__ == "__main__":
+    unittest.main()
