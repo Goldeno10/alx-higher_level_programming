@@ -97,12 +97,19 @@ class Rectangle(base.Base):
         """
         arg_list = ["id", "width", "height", "x", "y"]
         if args is not None and len(args) > 0:
-            i = 0
-            for it in args:
-                if i > len(arg_list):
-                    raise NameError("too many arguments for update")
-                setattr(self, arg_list[i], it)
-                i += 1
+            for i in range(len(args)):
+                if i == 0:
+                    setattr(self, arg_list[i], args[i])
+                elif i == 1:
+                    setattr(self, arg_list[i], args[i])
+                elif i == 2:
+                    setattr(self, arg_list[i], args[i])
+                elif i == 3:
+                    setattr(self, arg_list[i], args[i])
+                elif i == 4:
+                    setattr(self, arg_list[i], args[i])
+                else:
+                    break
         elif len(args) == 0 and kwargs is not None:
             if len(kwargs) > 0:
                 for key in kwargs:

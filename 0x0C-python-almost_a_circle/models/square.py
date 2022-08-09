@@ -29,13 +29,17 @@ class Square(rectangle.Rectangle):
         """
         arg_list = ["id", "size", "x", "y"]
         if args is not None and len(args) > 0:
-            i = 0
             for i in range(len(args)):
-                if i > len(arg_list):
-                    raise NameError("too many arguments to update")
+                if i == 0:
+                    setattr(self, arg_list[i], args[i])
+                elif i == 1:
+                    setattr(self, arg_list[i], args[i])
+                elif i == 2:
+                    setattr(self, arg_list[i], args[i])
+                elif i == 3:
+                    setattr(self, arg_list[i], args[i])
+                else:
                     break
-                setattr(self, arg_list[i], args[i])
-                i += 0
         elif len(args) == 0 and kwargs is not None:
             if len(kwargs) > 0:
                 for key in kwargs:
