@@ -12,6 +12,7 @@ Base = declarative_base()
 
 
 class State (Base):
+    """ links to the MySQL table states """
     __tablename__ = 'states'
 
     id = Column(Integer, nullable=False, primary_key=True)

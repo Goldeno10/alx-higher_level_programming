@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Creates the State "California" with the
-    City "San Francisco" from a DB
+"""
+Lists all State objects and corresponding City objects contained in the DB
 """
 import sys
 from relationship_state import Base, State
 from relationship_city import City
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker relationship
+from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == '__main__':
@@ -18,10 +18,9 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    newState = State(name='California')
-    newCity = City(name='San Francisco')
-    newState.cities.append(newCity)
+    st = session.query(State).outerjoin(City).order_by(State.id, City.id).all()
 
-    session.add(newState)
-    session.add(newCity)
-    session.commit()
+    for state in st:
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("    {}: {}".format(city.id, city.name))
