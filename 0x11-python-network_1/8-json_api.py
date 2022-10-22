@@ -10,13 +10,12 @@ if __name__ == '__main__':
     import sys
     import requests
 
-    data = {}
     url = 'http://0.0.0.0:5000/search_user'
     if len(sys.argv) == 2:
         q = sys.argv[1]
     else:
         q = ""
-    with requests.post(url, q) as res:
+    with requests.post(url, data={'q': q}) as res:
         try:
             dic_t = res.json()
             id = dic_t.get('id')
