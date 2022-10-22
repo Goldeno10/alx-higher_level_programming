@@ -23,6 +23,6 @@ if __name__ == '__main__':
             if len(dic_t) == 0 or not id or not name:
                 print('No result')
             else:
-                print(f"[{id}] {'name'}")
+                print(f"[{id}] {name}")
         except Exception:
             print('Not a valid JSON')
