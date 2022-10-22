@@ -8,9 +8,10 @@ the header of the response.
 
 if __name__ == '__main__':
     import sys
-    import urllib.request
+    import requests
 
-    url = urllib.request.Request(sys.argv[1])
-    with urllib.request.urlopen(url) as response:
-        page = response.info()
-    print(page['X-Request-Id'])
+    data = {}
+    data['email'] = sys.argv[2]
+    url = sys.argv[1]
+    with requests.post(url, data=data) as res:
+        print(res.text)
