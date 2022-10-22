@@ -12,7 +12,10 @@ if __name__ == '__main__':
 
     data = {}
     url = 'http://0.0.0.0:5000/search_user'
-    q = sys.argv[1] if len(sys.argv) == 2 else ""
+    if len(sys.argv) == 2:
+        q = sys.argv[1]
+    else:
+        q = ""
     with requests.post(url, q) as res:
         try:
             dic_t = res.json()
