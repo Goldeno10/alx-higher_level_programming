@@ -13,7 +13,11 @@ if __name__ == '__main__':
     owner = sys.argv[2]
     res = requests.get(f'https://api.github.com/repos/{owner}/{repo}/commits')
     dict_list = res.json()
+    count = 1
     for item in dict_list:
         sha = item.get('sha')
         author = item.get('commit').get('author').get('name')
         print(f'{sha}: {author}')
+        count += 1
+        if count > 10:
+            break
