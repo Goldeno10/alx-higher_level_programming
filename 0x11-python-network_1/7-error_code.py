@@ -10,7 +10,7 @@ if __name__ == '__main__':
     import requests
 
     url = sys.argv[1]
-    with urllib.request.urlopen(url) as res:
+    with requests.get(url) as res:
         if res.status_code < 400:
             print(res.text)
         else:
