@@ -4,7 +4,7 @@ add(){ git add .; }
 commit(){ m=$message; git commit -m "$m"; }
 push(){ git push; }
 pull(){ git pull; }
-message="fixed bug in project"
+message="Updated repo"
 if [ -n "$2" ]
 then
 	message="$2"
